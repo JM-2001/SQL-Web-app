@@ -1,0 +1,30 @@
+{
+  "name": "sql-web-app",
+  "version": "1.0.0",
+  "description": "This a web app that allows the modification of the SQLite database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JM-2001/SQL-Web-app.git"
+  },
+  "author": "JM-2001",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JM-2001/SQL-Web-app/issues"
+  },
+  "homepage": "https://github.com/JM-2001/SQL-Web-app#readme",
+  "dependencies": {
+    "better-sqlite3": "^9.5.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

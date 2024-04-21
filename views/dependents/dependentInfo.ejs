@@ -1,0 +1,91 @@
+<%- include('../partials/head') %>
+<body>
+    <header>
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <figure class="image is-52x52">
+                        <img src="/images/logo-transparent.png" height="52px" width="52px" alt="CSC 471 Logo" />
+                    </figure>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tables
+                        </a>
+
+                        <div class="navbar-dropdown is-right">
+                            <a class="navbar-item is-selected" href="/employee/all">
+                                Employee
+                            </a>
+                            <a class="navbar-item">
+                                Department
+                            </a>
+                            <a class="navbar-item">
+                                Projects
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <section class="section">
+            <h1 class="title">Dependent Info</h1>
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                        <tr class="is-info">
+                            <th class="has-text-dark">EmpSSN</th>
+                            <th class="has-text-dark">Name</th>
+                            <th class="has-text-dark">Relationship</th>
+                            <th class="has-text-dark">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td><%= dependent.Name %></td>
+                                <td><%= dependent.Relationship %></td>
+                                <td><%= dependent.EmpSSN %></td>
+                                <td>
+                                    <a href="/employee/dependents/update/<%= dependent.EmpSSN %>/<%= dependent.Name %>" class="button is-warning">Edit</a>
+                                    <a href="/employee/dependents/delete/<%= dependent.EmpSSN %>/<%= dependent.Name %>" class="button is-danger">Delete</a>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CSC 471 Project: Part 5</strong> by <a href="https://github.com/JM-2001/">Jonathan</a>.
+                The source code can be found on this
+                <a href="https://github.com/JM-2001/SQL-Web-app">github page</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

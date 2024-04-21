@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="images/logo-transparent.png">
+    <script src="js/Script.js" defer></script>
+    <title>CSC 471 - Home</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <figure class="image is-52x52">
+                        <img src="images/logo-transparent.png" height="52px" width="52px" alt="CSC 471 Logo" />
+                    </figure>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tables
+                        </a>
+
+                        <div class="navbar-dropdown is-right">
+                            <a class="navbar-item">
+                                Employee
+                            </a>
+                            <a class="navbar-item">
+                                Department
+                            </a>
+                            <a class="navbar-item">
+                                Projects
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero is-dark">
+            <div class="hero-body">
+              <p class="title">Welcome to my CSC-471 Project Part 5 Web App!</p>
+              <p class="subtitle">Feel free to look around.</p>
+            </div>
+          </section>
+
+        <section class="section">
+            <h1 class="title">Employee Table</h1>
+            <table class="table is-bordered is-striped is-fullwidth">
+                <thead>
+                    <tr class="is-info">
+                        <th class="has-text-dark">First Name</th>
+                        <th class="has-text-dark">Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>Smith</td>
+                    </tr>
+                    <tr>
+                        <td>Micheal</td>
+                        <td>Johnson</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="button is-link" href="#">View More</a>
+        </section>
+
+        <section class="section">
+            <h1 class="title">Department Table</h1>
+            <table class="table is-bordered is-striped is-fullwidth">
+                <thead>
+                    <tr class="is-info">
+                        <th class="has-text-dark">Dept Num</th>
+                        <th class="has-text-dark">Dept Name</th>
+                        <th class="has-text-dark">Number of Employees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>Engineering</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Human Resourses</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Marketing</td>
+                        <td>2</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <a class="button is-link" href="#">View More</a>
+        </section>
+
+        <section class="section">
+            <h1 class="title">Projects Table</h1>
+            <table class="table is-bordered is-striped is-fullwidth">
+                <thead>
+                    <tr class="is-info">
+                        <th class="has-text-dark">Project Number</th>
+                        <th class="has-text-dark">Project Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td>Product Robotics</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Product Gadget</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Product Picker</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="button is-link" href="#">View More</a>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CSC 471 Project: Part 5</strong> by <a href="https://github.com/JM-2001/">Jonathan</a>.
+                The source code can be found on this
+                <a href="https://github.com/JM-2001/SQL-Web-app">github page</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

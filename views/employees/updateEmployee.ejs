@@ -1,0 +1,124 @@
+<%- include('../partials/head') %>
+<body>
+    <header>
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <figure class="image is-52x52">
+                        <img src="/images/logo-transparent.png" height="52px" width="52px" alt="CSC 471 Logo" />
+                    </figure>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tables
+                        </a>
+
+                        <div class="navbar-dropdown is-right">
+                            <a class="navbar-item is-selected" href="/employee/all">
+                                Employee
+                            </a>
+                            <a class="navbar-item">
+                                Department
+                            </a>
+                            <a class="navbar-item">
+                                Projects
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <section class="section">
+            <h1 class="title">Update Employee</h1>
+
+            <form action="/employee/updating" method="POST">
+                <input type="hidden" name="originalEmpSSN" value="<%= employeeInfo.EmpSSN %>">
+            
+                <div class="field">
+                    <label class="label">EmpSSN:</label>
+                    <div class="control">
+                        <input class="input" type="number" minlength="9" maxlength="9" placeholder="SSN of Employee" name="empSSN" value="<%= employeeInfo.EmpSSN %>">
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Date of Birth:</label>
+                    <div class="control">
+                        <input class="input" type="date" name="dob" value="<%= employeeInfo.DOB %>">
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">First Name:</label>
+                    <div class="control">
+                        <input class="input" type="text" name="first_name" value="<%= employeeInfo.FName %>">
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Middle Init:</label>
+                    <div class="control">
+                        <input class="input" type="text" name="m_int" value="<%= employeeInfo.Mint %>">
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Last Name:</label>
+                    <div class="control">
+                        <input class="input" type="text" name="last_name" value="<%= employeeInfo.LName %>">
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Employee Address:</label>
+                    <div class="control">
+                        <input class="input" type="text" name="address" value="<%= employeeInfo.Address %>">
+                    </div>
+                </div>
+            
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CSC 471 Project: Part 5</strong> by <a href="https://github.com/JM-2001/">Jonathan</a>.
+                The source code can be found on this
+                <a href="https://github.com/JM-2001/SQL-Web-app">github page</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
