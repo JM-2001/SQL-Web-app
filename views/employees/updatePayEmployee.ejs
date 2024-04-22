@@ -1,0 +1,129 @@
+<%- include('../partials/head') %>
+<body>
+    <header>
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <figure class="image is-52x52">
+                        <img src="/images/logo-transparent.png" height="52px" width="52px" alt="CSC 471 Logo" />
+                    </figure>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tables
+                        </a>
+
+                        <div class="navbar-dropdown is-right">
+                            <a class="navbar-item is-selected" href="/employee/all">
+                                Employee
+                            </a>
+                            <a class="navbar-item">
+                                Department
+                            </a>
+                            <a class="navbar-item">
+                                Projects
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <% if (hourlyEmp) { %>
+        <section class="section">
+            <h1 class="title">Update Hourly Employee</h1>
+
+            <form action="/employee/update-hourly" method="POST">
+            
+                <div class="field">
+                    <label class="label">EmpSSN:</label>
+                    <div class="control">
+                        <input class="input" type="number" minlength="9" maxlength="9" placeholder="SSN of Employee" name="empSSN" value="<%= hourlyEmp.EmpSSN %>" readonly>
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Hourly Pay:</label>
+                    <div class="control">
+                        <input class="input" type="number" name="hourlyPay" step="0.01" min="7.50" value="<%= hourlyEmp.hourlyPay %>">
+                    </div>
+                </div>
+            
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+        <% } else if (salariedEmp) { %>
+
+        <section class="section">
+            <h1 class="title">Update Salary Employee</h1>
+
+            <form action="/employee/update-salaried" method="POST">
+            
+                <div class="field">
+                    <label class="label">EmpSSN:</label>
+                    <div class="control">
+                        <input class="input" type="number" minlength="9" maxlength="9" placeholder="SSN of Employee" name="empSSN" value="<%= salariedEmp.EmpSSN %>" readonly>
+                    </div>
+                </div>
+            
+                <div class="field">
+                    <label class="label">Monthly Salary:</label>
+                    <div class="control">
+                        <input class="input" type="number" name="salariedPay" value="<%= salariedEmp.monthlySalary %>">
+                    </div>
+                </div>
+            
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+        <% } %>
+
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CSC 471 Project: Part 5</strong> by <a href="https://github.com/JM-2001/">Jonathan</a>.
+                The source code can be found on this
+                <a href="https://github.com/JM-2001/SQL-Web-app">github page</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

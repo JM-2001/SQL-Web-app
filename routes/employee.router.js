@@ -13,6 +13,15 @@ router.get("/new", employeeController.createNewEmployeeSite);
 router.post("/new-employee", employeeController.createNewEmployee);
 router.get("/search", employeeController.searchEmployeeSite);
 router.post("/searching", employeeController.searchEmployee);
+router.get("/update-payroll/:empSSN", employeeController.getPayEmployeeSite);
+router.post("/update-hourly", employeeController.updateHourlyEmployee);
+router.post("/update-salaried", employeeController.updateSalariedEmployee);
+router.get("/demote-hourly/:empSSN", employeeController.demoteHourlyEmployee);
+router.get("/demote-salaried/:empSSN", employeeController.demoteSalariedEmployee);
+router.get("/promote", employeeController.promoteEmployeeSite);
+router.get("/promote/:empSSN", employeeController.promoteEmployeeByEmpSSNSite);
+router.post("/promoting-hourly", employeeController.createHourlyEmployee);
+router.post("/promoting-salaried", employeeController.createSalariedEmployee);
 
 
 /*

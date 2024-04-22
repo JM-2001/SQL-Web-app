@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    var toggleButtonEmployee = document.getElementById('toggle-rows-employee');
-    var toggleButtonDependent = document.getElementById('toggle-rows-dependent');
-    var toggleButton = document.getElementById('toggle-rows-hourly-employee');
+    let toggleButtonEmployee = document.getElementById('toggle-rows-employee');
+    let toggleButtonDependent = document.getElementById('toggle-rows-dependent');
+    let toggleButtonHourly = document.getElementById('toggle-rows-hourly-employee');
+    let toggleButtonSalaried = document.getElementById('toggle-rows-salaried-employee');
 
     toggleButtonEmployee.addEventListener('click', function () {
         toggleRows('employee-table');
@@ -30,64 +31,44 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleRows('dependent-table');
     });
 
-    toggleButton.addEventListener('click', function () {
+    toggleButtonHourly.addEventListener('click', function () {
         toggleRows('hourly-employee-table');
     });
 
+    toggleButtonSalaried.addEventListener('click', function () {
+        toggleRows('salaried-employee-table');
+    });
+
     function toggleRows(tableId) {
-        var table = document.getElementById(tableId);
-        var expandableRows = table.querySelectorAll('.expandable-tr');
+        let table = document.getElementById(tableId);
+        let expandableRows = table.querySelectorAll('.expandable-tr');
         expandableRows.forEach(function (row) {
-            if (row.classList.contains('is-visible')) {
-                row.classList.remove('is-visible');
-            } else {
-                row.classList.add('is-visible');
+            if (!row.classList.contains('is-visible')) {
+                if (row.classList.contains('is-not-visible')) {
+                    row.classList.remove('is-not-visible');
+                } else {
+                    row.classList.add('is-not-visible');
+                }
             }
         });
     }
 
-});
+    // Get the form and the payroll type select element
+    const form = document.querySelector('form');
+    const payrollTypeSelect = document.querySelector('select[name="payroll-type"]');
 
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    var toggleButton = document.getElementById('toggle-rows');
-
-    toggleButton.addEventListener('click', function () {
-        var expandableRows = document.querySelectorAll('.expandable-tr');
-        expandableRows.forEach(function (row) {
-            if (row.classList.contains('is-visible')) {
-                row.classList.remove('is-visible');
-            } else {
-                row.classList.add('is-visible');
-            }
-        });
-    });
-});
-*/
-
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    var toggleButtonEmployee = document.getElementById('toggle-rows-employee');
-    var toggleButtonDependent = document.getElementById('toggle-rows-dependent');
-
-    toggleButtonEmployee.addEventListener('click', function () {
-        toggleRows('employee-table');
+    // Add an event listener for the change event
+    payrollTypeSelect.addEventListener('change', (event) => {
+        // Update the form action based on the selected option
+        if (event.target.value === 'Hourly Employee') {
+            console.log('Hourly Employee: /employee/promoting-hourly');
+            form.action = '/employee/promoting-hourly';
+        } else if (event.target.value === 'Salaried Employee') {
+            console.log('Salaried Employee: /employee/promoting-salaried');
+            form.action = '/employee/promoting-salaried';
+        }
     });
 
-    toggleButtonDependent.addEventListener('click', function () {
-        toggleRows('dependent-table');
-    });
 
-    function toggleRows(tableId) {
-        var table = document.getElementById(tableId);
-        var expandableRows = table.querySelectorAll('.expandable-tr');
-        expandableRows.forEach(function (row) {
-            if (row.classList.contains('is-visible')) {
-                row.classList.remove('is-visible');
-            } else {
-                row.classList.add('is-visible');
-            }
-        });
-    }
+
 });
-*/

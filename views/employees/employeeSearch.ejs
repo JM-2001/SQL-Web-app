@@ -54,7 +54,7 @@
             <div>
                 <form action="/employee/searching" method="post">
                     <div class="field has-addons">
-                        <div class="control">
+                        <div class="control is-expanded">
                             <input class="input" type="text" placeholder="Find an employee" name="search">
                         </div>
                         <div class="control">
@@ -77,6 +77,7 @@
                             <th class="has-text-dark">Middle init</th>
                             <th class="has-text-dark">Last Name</th>
                             <th class="has-text-dark">Address</th>
+                            <th class="has-text-dark">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,6 +90,12 @@
                                     <td><%= employee.Mint %></td>
                                     <td><%= employee.LName %></td>
                                     <td><%= employee.Address %></td>
+                                    <td>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <a href="/employee/employeeInfo/<%= employee.EmpSSN %>" class="button is-info">View</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             <% }) %>
                         <% } else { %>

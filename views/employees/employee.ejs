@@ -66,7 +66,7 @@
                     </thead>
                     <tbody>
                         <% employees.forEach(function(employee, index) { %>
-                            <tr class="expandable-tr <%= index < 10 ? 'is-visible' : '' %>">
+                            <tr class="expandable-tr <%= index < 10 ? 'is-visible' : 'is-not-visible' %>">
                                 <td><%= employee.EmpSSN %></td>
                                 <td><%= employee.DOB %></td>
                                 <td><%= employee.FName %></td>
@@ -84,6 +84,11 @@
                                         <div class="control">
                                             <a href="/employee/delete/<%= employee.EmpSSN %>" class="button is-danger">Delete</a>
                                         </div>
+                                        <% if (nonPayrollEmployees.some(nonPayrollEmployee => nonPayrollEmployee.EmpSSN === employee.EmpSSN)) { %>
+                                            <div class="control">
+                                                <a href="/employee/promote/<%= employee.EmpSSN %>" class="button is-success">Add to Payroll</a>
+                                            </div>
+                                        <% } %>
                                     </div>
                                 </td>
                             </tr>
@@ -184,10 +189,10 @@
                                             <a href="/employee/employeeInfo/<%= employee.EmpSSN %>" class="button is-info">View</a>
                                         </div>
                                         <div class="control">
-                                            <a href="/employee/update/<%= employee.EmpSSN %>" class="button is-warning">Edit</a>
+                                            <a href="/employee/update-payroll/<%= employee.EmpSSN %>" class="button is-warning">Edit</a>
                                         </div>
                                         <div class="control">
-                                            <a href="/employee/delete/<%= employee.EmpSSN %>" class="button is-danger">Delete</a>
+                                            <a href="/employee/demote-hourly/<%= employee.EmpSSN %>" class="button is-danger">Demote</a>
                                         </div>
                                     </div>
                                 </td>
@@ -200,10 +205,61 @@
                         <button class="button is-info" id="toggle-rows-hourly-employee">Show/Hide Rows</button>
                     </div>
                     <div class="control">
-                        <a class="button is-link" href="/employee/new">Add new employee</a>
+                        <a class="button is-link" href="/employee/promote">Promote Employee</a>
                     </div>
-                    <div>
-                        <a class="button is-success" href="/employee/search">Go to Search Employees</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h1 class="title">Salaried Employee Table</h1>
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-fullwidth" id="salaried-employee-table">
+                    <thead>
+                        <tr class="is-info">
+                            <th class="has-text-dark">EmpSSN</th>
+                            <th class="has-text-dark">DOB</th>
+                            <th class="has-text-dark">First Name</th>
+                            <th class="has-text-dark">Middle init</th>
+                            <th class="has-text-dark">Last Name</th>
+                            <th class="has-text-dark">Address</th>
+                            <th class="has-text-dark">Monthly Salary</th>
+                            <th class="has-text-dark">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% salariedEmployees.forEach(function(employee, index) { %>
+                            <tr class="expandable-tr <%= index < 10 ? 'is-visible' : '' %>">
+                                <td><%= employee.EmpSSN %></td>
+                                <td><%= employee.DOB %></td>
+                                <td><%= employee.FName %></td>
+                                <td><%= employee.Mint %></td>
+                                <td><%= employee.LName %></td>
+                                <td><%= employee.Address %></td>
+                                <td>$<%= employee.monthlySalary.toFixed(2) %></td>
+                                <td>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <a href="/employee/employeeInfo/<%= employee.EmpSSN %>" class="button is-info">View</a>
+                                        </div>
+                                        <div class="control">
+                                            <a href="/employee/update-payroll/<%= employee.EmpSSN %>" class="button is-warning">Edit</a>
+                                        </div>
+                                        <div class="control">
+                                            <a href="/employee/demote-salaried/<%= employee.EmpSSN %>" class="button is-danger">Demote</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-info" id="toggle-rows-salaried-employee">Show/Hide Rows</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-link" href="/employee/promote">Promote Employee</a>
                     </div>
                 </div>
             </div>

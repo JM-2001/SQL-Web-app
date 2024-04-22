@@ -1,4 +1,6 @@
-.expandable-tr:not(.is-visible) {
+
+
+.is-not-visible {
     display: none;
 }
 

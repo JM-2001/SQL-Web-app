@@ -61,6 +61,12 @@
                             <th class="has-text-dark">Middle init</th>
                             <th class="has-text-dark">Last Name</th>
                             <th class="has-text-dark">Address</th>
+                            <% if(hourlyEmp) { %>
+                                <th class="has-text-dark">Hourly Pay</th>
+                            <% } %>
+                            <% if(salariedEmp) { %>
+                                <th class="has-text-dark">Monthly Salary</th>
+                            <% } %>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +77,12 @@
                             <td><%= employee.Mint %></td>
                             <td><%= employee.LName %></td>
                             <td><%= employee.Address %></td>
+                            <% if(hourlyEmp) { %>
+                                <td>$<%= hourlyEmp.hourlyPay.toFixed(2) %></td>
+                            <% } %>
+                            <% if(salariedEmp) { %>
+                                <td>$<%= salariedEmp.monthlySalary.toFixed(2) %></td>
+                            <% } %>
                         </tr>
                     </tbody>
                 </table>
@@ -79,6 +91,24 @@
                 <div class="control">
                     <a href="/employee/update/<%= employee.EmpSSN %>" class="button is-link">Edit</a>
                 </div>
+                <% if (hourlyEmp || salariedEmp) { %>
+                    <div class="control">
+                        <a href="/employee/update-payroll/<%= employee.EmpSSN %>" class="button is-link">Update Pay Roll</a>
+                    </div>
+                <% } %>
+                <% if (hourlyEmp) { %>
+                    <div class="control">
+                        <a href="/employee/demote-hourly/<%= employee.EmpSSN %>" class="button is-danger">Demote hourly employee</a>
+                    </div>
+                <% } else if (salariedEmp) { %>
+                    <div class="control">
+                        <a href="/employee/demote-salaried/<%= employee.EmpSSN %>" class="button is-danger">Demote salary employee</a>
+                    </div>
+                <% } else { %>
+                    <div class="control">
+                        <a href="/employee/promote/<%= employee.EmpSSN %>" class="button is-link">Promote</a>
+                    </div>
+                <% } %>
                 <div class="control">
                     <a href="/employee/delete/<%= employee.EmpSSN %>" class="button is-danger">Delete</a>
                 </div>
@@ -113,7 +143,6 @@
 
                                         <div class="control">
                                             <a href="/employee/dependents/delete/<%= dependent.EmpSSN %>/<%= dependent.Name %>" class="button is-danger">Delete</a>
-
                                         </div>
                                     </div>
                                 </td>
